@@ -1,0 +1,138 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <title>{% block title %} {% endblock title %}</title>
+    <meta name="description" content=""/>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="#">
+    <link rel="icon" href="#" type="image/x-icon">
+
+    <!-- Morris Charts CSS -->
+    <link href="{% static 'vendors4/morris.js/morris.css" rel="stylesheet' %}" type="text/css"/>
+
+    <!-- Toggles CSS -->
+    <link href="{% static 'vendors4/jquery-toggles/css/toggles.css" rel="stylesheet' %}" type="text/css">
+    <link href="{% static 'vendors4/jquery-toggles/css/themes/toggles-light.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'vendors4/bootstrap/dist/css/bootstrap.min.css' %}" rel="stylesheet" type="text/css">
+
+    <link href="{% static 'vendors4/owl.carousel/dist/assets/owl.carousel.min.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'vendors4/owl.carousel/dist/assets/owl.theme.default.min.css' %}" rel="stylesheet"
+          type="text/css">
+
+
+    <!-- Toastr CSS -->
+    <link href="{% static 'vendors4/jquery-toast-plugin/dist/jquery.toast.min.css' %}" rel="stylesheet" type="text/css">
+
+    <!-- Custom CSS -->
+    <link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css">
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css" rel="stylesheet" type="text/css"/>
+
+
+    {% block extra_style %}
+    {% endblock extra_style %}
+</head>
+
+<body>
+<!-- Preloader -->
+<div class="preloader-it">
+    <div class="loader-pendulums"></div>
+</div>
+<!-- /Preloader -->
+
+<!-- HK Wrapper -->
+<div class="hk-wrapper {% block extra_class %}hk-vertical-nav {% endblock extra_class %}">
+    <!-- Main Content -->
+    <div class="hk-pg-wrapper">
+        {% block main_content %}
+
+        {% endblock main_content %}
+        <!-- Footer -->
+        <div class="hk-footer-wrap container-fluid">
+            <footer class="footer">
+                <div class="row">
+                    <div class="col-md-6 col-sm-12">
+                        <p>Pampered by<a href="#" class="text-dark" target="_blank">DevA+</a> © 2022</p>
+                    </div>
+                    <div class="col-md-6 col-sm-12">
+                        <p class="d-inline-block">Follow us</p>
+                        <a href="#" class="d-inline-block btn btn-icon btn-icon-only btn-indigo btn-icon-style-4"><span
+                                class="btn-icon-wrap"><i class="fa fa-facebook"></i></span></a>
+                        <a href="#" class="d-inline-block btn btn-icon btn-icon-only btn-indigo btn-icon-style-4"><span
+                                class="btn-icon-wrap"><i class="fa fa-twitter"></i></span></a>
+                        <a href="#" class="d-inline-block btn btn-icon btn-icon-only btn-indigo btn-icon-style-4"><span
+                                class="btn-icon-wrap"><i class="fa fa-google-plus"></i></span></a>
+                    </div>
+                </div>
+            </footer>
+        </div>
+        <!-- /Footer -->
+    </div>
+    <!-- /Main Content -->
+
+</div>
+<!-- /HK Wrapper -->
+
+<!-- jQuery -->
+<script src="{% static 'vendors4/jquery/dist/jquery.min.js' %}"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="{% static 'vendors4/popper.js/dist/umd/popper.min.js' %}"></script>
+<script src="{% static 'vendors4/bootstrap/dist/js/bootstrap.min.js' %}"></script>
+
+<!-- Slimscroll JavaScript -->
+<script src="{% static 'js/jquery.slimscroll.js' %}"></script>
+
+<!-- Fancy Dropdown JS -->
+<script src="{% static 'js/dropdown-bootstrap-extended.js' %}"></script>
+
+<!-- FeatherIcons JavaScript -->
+<script src="{% static 'js/feather.min.js' %}"></script>
+
+<!-- Toggles JavaScript -->
+<script src="{% static 'vendors4/jquery-toggles/toggles.min.js' %}"></script>
+<script src="{% static 'js/toggle-data.js' %}"></script>
+
+<!-- Toastr JS -->
+<script src="{% static 'vendors4/jquery-toast-plugin/dist/jquery.toast.min.js' %}"></script>
+
+<!-- Counter Animation JavaScript -->
+<script src="{% static 'vendors4/waypoints/lib/jquery.waypoints.min.js' %}"></script>
+<script src="{% static 'vendors4/jquery.counterup/jquery.counterup.min.js' %}"></script>
+
+<!-- Morris Charts JavaScript -->
+<script src="{% static 'vendors4/raphael/raphael.min.js' %}"></script>
+<script src="{% static 'vendors4/morris.js/morris.min.js' %}"></script>
+
+<!-- Easy pie chart JS -->
+<script src="{% static 'vendors4/easy-pie-chart/dist/jquery.easypiechart.min.js' %}"></script>
+
+<!-- Flot Charts JavaScript -->
+<script src="{% static 'vendors4/flot/excanvas.min.js' %}"></script>
+<script src="{% static 'vendors4/flot/jquery.flot.js' %}"></script>
+<script src="{% static 'vendors4/flot/jquery.flot.pie.js' %}"></script>
+<script src="{% static 'vendors4/flot/jquery.flot.resize.js' %}"></script>
+<script src="{% static 'vendors4/flot/jquery.flot.time.js' %}"></script>
+<script src="{% static 'vendors4/flot/jquery.flot.stack.js' %}"></script>
+<script src="{% static 'vendors4/flot/jquery.flot.crosshair.js' %}"></script>
+<script src="{% static 'vendors4/jquery.flot.tooltip/js/jquery.flot.tooltip.min.js' %}"></script>
+
+<!-- EChartJS JavaScript -->
+<script src="{% static 'vendors4/echarts/dist/echarts-en.min.js' %}"></script>
+
+<!-- Init JavaScript -->
+<script src="{% static 'js/init.js' %}"></script>
+
+<script src="{% static 'js/validation-data.js' %}"></script>
+
+
+{% block extra_js %}
+{% endblock extra_js %}
+</body>
+
+</html>

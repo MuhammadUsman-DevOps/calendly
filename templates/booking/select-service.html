@@ -1,0 +1,28 @@
+{% extends 'bases/client_base.html' %}
+{% load static %}
+{% block title %} Select Service {% endblock title %}
+{% block extra_class %}{% endblock extra_class %}
+{% block main_content %}
+    <!-- Container -->
+    <div class="container-fluid mt-xl-50 mt-sm-30 mt-15">
+        <!-- Row -->
+
+            <div class="col-xl-12">
+                <section class="hk-sec-wrapper justify-content-center text-center">
+                    <h4>{{ name }}</h4>
+                    <p class="text-wrap">Welcome to my scheduling page. Please follow the instructions to add an event to my calender</p>
+                    <div class="row mt-100">
+                        {% for service in services %}
+                        <div class="col-lg-6">
+                            <h3><a href="{% url 'select_date' service.pk employee %}">{{ service.service_name }} <i class="feather-icon ml-50 text-success" data-feather="arrow-right-circle"></i></a> </h3>
+                        </div>
+                        {% endfor %}
+
+                    </div>
+                </section>
+            </div>
+
+        <!-- /Row -->
+    </div>
+    <!-- /Container -->
+{% endblock main_content %}

@@ -1,0 +1,143 @@
+{% extends 'bases/client_base.html' %}
+{% load static %}
+{% block title %} Select Date {% endblock title %}
+{% block extra_style %}
+
+{% endblock extra_style %}
+{% block main_content %}
+    <nav class="navbar navbar-expand-xl navbar-light fixed-top hk-navbar">
+        <a id="navbar_toggle_btn" class="navbar-toggle-btn nav-link-hover" href="javascript:void(0);"><span
+                class="feather-icon"><i data-feather="menu"></i></span></a>
+        <a class="navbar-brand" href="{% url 'select_date' service.pk employee.pk %}">
+            <button class="btn btn-outline-primary btn-rounded"><i class="feather-icon" data-feather="arrow-left"></i>
+            </button>
+        </a>
+
+    </nav>
+    <nav class="hk-nav hk-nav-light">
+        <div class="nicescroll-bar">
+            <div class="navbar-nav-wrap">
+                <ul class="navbar-nav flex-column">
+                    <li class="nav-item">
+                        <h5 class="nav-link nav-link-text">{{ employee.first_name }} {{ employee.last_name }}</h5>
+                    </li>
+                    <li class="nav-item">
+                        <h4 class="nav-link nav-link-text" style="color: black">{{ service.service_name }}</h4>
+                    </li>
+                    <li class="nav-item">
+                        <h4 class="nav-link nav-link-text"><i class="feather-icon" data-feather="file-text"></i>
+                           {{ slot }}</h4>
+                    </li>
+                    <li class="nav-item">
+                        <h4 class="nav-link nav-link-text"><i class="feather-icon" data-feather="calendar"></i>
+                            {{ date }}</h4>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Container -->
+    <div class="container-fluid mt-xl-50 mt-sm-30 mt-15">
+        <!-- Row -->
+
+        <div class="col-xl-12">
+            <div class="hk-sec-wrapper ">
+                {% if messages %}
+                {% for message in messages %}
+                    <div class="alert alert-success">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+                <form class="needs-validation" method="post" novalidate="">
+                    {% csrf_token %}
+                    <div class="form-row">
+                        <div class="col-md-4 mb-10">
+                            <label for="full_name">Full Name</label>
+                            <input type="text" class="form-control" id="full_name" name="full_name"
+                                   placeholder="Full Name" required="">
+                            <div class="valid-feedback">
+                                Looks good!
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-md-4 mb-10">
+                            <label for="email_address">Email Address</label>
+                            <input type="email" class="form-control" id="email_address" name="email_address"
+                                   placeholder="Email Address" required="">
+                            <div class="valid-feedback">
+                                Looks good!
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-md-4 mb-10">
+                            <label for="phone_number">Phone Number</label>
+                            <input type="text" class="form-control" id="phone_number" name="phone_number"
+                                   placeholder="Phone Number">
+                            <div class="valid-feedback">
+                                Looks good!
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Is Case Approved? *</label>
+                            <div class="form-check custom-control custom-checkbox">
+                                <input type="checkbox" class="form-check-input custom-control-input" id="case_approved" value="1"
+                                       name="case_approved">
+                                <label class="form-check-label custom-control-label" for="case_approved">
+                                    Yes
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="font-weight-bold">If you are requesting a lab, please request following day (due to most labs being in
+                                the evening) *</label>
+                            <div class="form-check custom-control custom-checkbox">
+                                <input type="checkbox" class="form-check-input custom-control-input" id="declaration"
+                                       name="declaration" required>
+                                <label class="form-check-label custom-control-label" for="declaration">
+                                    I understand I must request following day for lab support
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Is this a first time user or revision? *</label>
+                            <div class="custom-control custom-radio mb-10">
+                                <input type="radio" class="custom-control-input" id="first_time"
+                                       name="booking_type" required="" value="First Time">
+                                <label class="custom-control-label" for="first_time">First Time</label>
+                            </div>
+                            <div class="custom-control custom-radio mb-10">
+                                <input type="radio" class="custom-control-input" id="revision"
+                                       name="booking_type" required="" value="Revision">
+                                <label class="custom-control-label" for="revision">Revision</label>
+                            </div>
+
+                            <div class="custom-control custom-radio mb-10">
+                                <input type="radio" class="custom-control-input" id="other"
+                                       name="booking_type" required="" value="Other">
+                                <label class="custom-control-label" for="other">Other</label>
+                                <div class="invalid-feedback">Please Select One.</div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary" type="submit">Confirm Booking</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- /Row -->
+    </div>
+    <!-- /Container -->
+{% endblock main_content %}
+
+{% block extra_js %}
+
+{% endblock extra_js %}
